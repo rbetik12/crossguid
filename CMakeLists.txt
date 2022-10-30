@@ -40,15 +40,6 @@ else()
     target_compile_definitions(crossguid PRIVATE GUID_LIBUUID)
 endif()
 
-if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-    set(WARNINGS "-Werror" "-Wall")
-elseif(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-    set(WARNINGS "-Werror" "-Wall")
-elseif(MSVC)
-    set(WARNINGS "/WX" "/W4")
-endif()
-target_compile_options(crossguid PRIVATE ${WARNINGS})
-
 set_target_properties(crossguid
 					  PROPERTIES
 					  VERSION ${PROJECT_VERSION}
